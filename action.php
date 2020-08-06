@@ -355,7 +355,7 @@ if (isset($_POST["Common"])) {
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">'.$product_title.'</a></h3>
-													<h4 class="product-price"><span class="qty">'.$n.'</span>$'.$product_price.'</h4>
+													<h4 class="product-price"><span class="qty">'.$n.'</span>Tsh'.$product_price.'</h4>
 												</div>									
 											</div>'
                     ;
@@ -406,9 +406,7 @@ if (isset($_POST["Common"])) {
 									<h4 class="nomargin product-name header-cart-item-name"><a href="product.php?p='.$product_id.'">'.$product_title.'</a></h4>
 									</div>
 									<div class="col-sm-6">
-										<div style="max-width=50px;">
-										<p> BBBBBBB </p>
-										</div>
+										
 									</div>
 
 								</div>

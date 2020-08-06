@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2020 at 09:54 PM
+-- Generation Time: Aug 06, 2020 at 01:39 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -134,7 +134,10 @@ INSERT INTO `cart` (`cart_id`, `p_id`, `buyer_id`, `qty`, `ip_add`) VALUES
 (16, 10, 6, 1, '127.0.0.1'),
 (17, 13, 6, 1, '127.0.0.1'),
 (18, 10, 6, 1, '127.0.0.1'),
-(19, 7, 6, 1, '127.0.0.1');
+(19, 7, 6, 1, '127.0.0.1'),
+(23, 7, 7, 4, '127.0.0.1'),
+(25, 10, 7, 1, '127.0.0.1'),
+(26, 7, 7, 1, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -165,13 +168,31 @@ INSERT INTO `categories` (`cat_id`, `cat_name`) VALUES
 
 CREATE TABLE `order_info` (
   `order_id` int(10) NOT NULL,
-  `buyer_id` int(10) DEFAULT NULL,
-  `payment_method` varchar(20) NOT NULL,
-  `exp_date` date DEFAULT NULL,
-  `qty` int(15) DEFAULT NULL,
-  `total_amount` int(15) DEFAULT NULL,
-  `status` varchar(20) DEFAULT NULL
+  `buyer_id` int(11) NOT NULL,
+  `f_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `zip` int(10) NOT NULL,
+  `cardname` varchar(255) NOT NULL,
+  `cardnumber` varchar(20) NOT NULL,
+  `expdate` varchar(255) NOT NULL,
+  `prod_count` int(15) DEFAULT NULL,
+  `total_amt` int(15) DEFAULT NULL,
+  `cvv` int(5) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_info`
+--
+
+INSERT INTO `order_info` (`order_id`, `buyer_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`, `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`, `status`) VALUES
+(1, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'tanzanis', 123456, 'mmjj', '1235678', '12/22', 1, 540000, 123, 'Pending'),
+(2, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 1, 780000, 123, 'Pending'),
+(3, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 3, 780000, 123, 'Pending'),
+(4, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'Kibaha', 'kibaha', 123456, 'fake', '1234567890', '11/32', 1, 610000, 123, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -186,6 +207,14 @@ CREATE TABLE `order_products` (
   `qty` int(15) DEFAULT NULL,
   `amount` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_products`
+--
+
+INSERT INTO `order_products` (`order_pro_id`, `order_id`, `product_id`, `qty`, `amount`) VALUES
+(1, 3, 12, 1, 780000),
+(2, 4, 10, 1, 610000);
 
 -- --------------------------------------------------------
 
@@ -214,7 +243,7 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_im
 (10, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395561_HuaweiP40.jpg', 610000, NULL, 1, 1, 'Huawei P40'),
 (11, 'Brackberry B1', 'Barand new Brackberry Smart phone, Storage 32GB', '1596520184_b1.jpg', 430000, NULL, 4, 9, 'Brackberry B1'),
 (12, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644473_i10.jpg', 780000, NULL, 2, 3, 'iPhone 10 Pro'),
-(13, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644556_i10.jpg', 780000, NULL, 2, 3, 'iPhone 10 Pro');
+(20, 'Iphone X', 'Barand new iPhone 10 pro, Storage 64GB', '1596644556_i10.jpg', 980000, NULL, 2, 3, 'iPhone X');
 
 -- --------------------------------------------------------
 
@@ -329,7 +358,7 @@ ALTER TABLE `buyer`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -341,13 +370,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `seller`
