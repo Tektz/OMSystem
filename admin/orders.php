@@ -7,11 +7,11 @@
                     </tr></thead>
                     <tbody>
                       <?php 
-                        $result=mysqli_query($con,"select order_id, fname, payment_method, exp_date, qty, total_amount, status from order_info a, buyer b where a.buyer_id=b.buyer_id")or die ("query 1 incorrect.....");
+                        $result=mysqli_query($con,"select order_id, f_name, expdate, prod_count, total_amt, status from order_info a, buyer b where a.buyer_id=b.buyer_id")or die( mysqli_error($con));
 
-                        while(list($order_id,$cus_name,$payment,$exp_date,$qty,$t_amount,$status)=mysqli_fetch_array($result))
+                        while(list($order_id,$cus_name,$exp_date,$qty,$t_amount,$status)=mysqli_fetch_array($result))
                         {	
-                        echo "<tr><td>$order_id</td><td>$cus_name</td><td>$payment</td><td>$exp_date</td><td>$qty</td><td>$t_amount</td><td>$status</td>
+                        echo "<tr><td>$order_id</td><td>$cus_name</td><td></td><td>$exp_date</td><td>$qty</td><td>$t_amount</td><td>$status</td>
                         <td>
                         <a class=' btn btn-danger' href='orders.php?order_id=$order_id&action=delete'>Delete</a>
                         </td></tr>";

@@ -22,11 +22,10 @@
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1" >
-									<?php
+<?php
                     include 'db.php';
-
-					$product_query = "SELECT * FROM product a,categories b WHERE a.cat_id=b.cat_id AND product_id BETWEEN 1 AND 10";
-                $run_query = mysqli_query($con,$product_query);
+					$product_query = "SELECT * FROM product a,categories b WHERE a.cat_id=b.cat_id";
+                $run_query = mysqli_query($con,$product_query)or die( mysqli_error($con));
                 if(mysqli_num_rows($run_query) > 0){
 
                     while($row = mysqli_fetch_array($run_query)){
@@ -37,28 +36,27 @@
                         $pro_price = $row['product_price'];
                         $pro_image = $row['product_image'];
                         $cat_name = $row["cat_name"];
+
                         echo "  
 								<div class='product'>
-								<form method='post' action='action.php?action=add&code= echo $row[$pro_id]['code'];'>
 									<a href='product.php?p=$pro_id'><div class='product-img'>
 										<img src='product_images/$pro_image' style='max-height: 170px;' alt=''>
-										<div class='product-label'>											
+										<div class='product-label'>
 											<span class='new'>NEW</span>
 										</div>
 									</div></a>
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>
+										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>	
 										<div class='btn-group' style='margin-left: 25px; margin-top: 15px'>
 								        <a href='test.php?id=".$row['product_id']."' class='btn btn-fill btn-primary' pid='".$row['product_id']."' type='submit' id='btn_buy' name='btn_buy'>Add to Cart</a>
-                                        </div>	
-									</div>
-									</form>
-								</div>            
+                                        </div>								
+									</div>						
+								</div>         
 			";
 		}
-        ;
+        ; 
 }
 ?>
 									</div>
@@ -98,8 +96,8 @@
 									<div class="products-slick" data-nav="#slick-nav-2">
 				<?php
                     include 'db.php';
-					$product_query = "SELECT * FROM product a,categories b WHERE a.cat_id=b.cat_id AND product_id BETWEEN 6 AND 15";
-                $run_query = mysqli_query($con,$product_query);
+					$product_query = "SELECT * FROM product a,categories b WHERE a.cat_id=b.cat_id";
+                $run_query = mysqli_query($con,$product_query)or die( mysqli_error($con));
                 if(mysqli_num_rows($run_query) > 0){
 
                     while($row = mysqli_fetch_array($run_query)){

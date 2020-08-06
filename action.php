@@ -394,7 +394,7 @@ if (isset($_POST["Common"])) {
 					$product_title = $row["product_name"];
 					$product_price = $row["product_price"];
 					$product_image = $row["product_image"];
-					$cart_item_id = $row["id"];
+					$cart_item_id = $row["cart_id"];
 					$qty = $row["qty"];
 					echo 
 						'         
@@ -461,7 +461,8 @@ if (isset($_POST["Common"])) {
 							<input type="hidden" name="upload" value="1">';
 							  
 							$x=0;
-							$sql = "SELECT a.product_id,a.product_name,a.product_price,a.product_image,b.id,b.qty FROM product a,cart b WHERE a.product_id=b.p_id AND b.buyer_id='$_SESSION[uid]'";
+							$id=$_SESSION["uid"];
+							$sql = "SELECT * FROM product a,cart b WHERE a.product_id=b.p_id AND b.buyer_id=$id";
 							$query = mysqli_query($con,$sql);
 							while($row=mysqli_fetch_array($query)){
 								$x++;

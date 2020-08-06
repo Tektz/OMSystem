@@ -31,7 +31,7 @@ include "header.php";
     </div>
     <div class="tab-pane container fade" id="orders">
     <h3 style="text-align:center">Orders List</h3>
-    
+      <?php include "orders.php"; ?>
     </div>
     <div class="tab-pane container fade" id="products">
     <h3 style="text-align:center">Products List</h3>

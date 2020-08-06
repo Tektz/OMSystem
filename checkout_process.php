@@ -19,13 +19,13 @@ if (isset($_SESSION["uid"])) {
     $prod_total = $_POST['total_price'];
     
     
-    $sql0="SELECT order_id from `orders_info`";
+    $sql0="SELECT order_id from `order_info`";
     $runquery=mysqli_query($con,$sql0);
     if (mysqli_num_rows($runquery) == 0) {
         echo( mysqli_error($con));
         $order_id=1;
     }else if (mysqli_num_rows($runquery) > 0) {
-        $sql2="SELECT MAX(order_id) AS max_val from `orders_info`";
+        $sql2="SELECT MAX(order_id) AS max_val from `order_info`";
         $runquery1=mysqli_query($con,$sql2);
         $row = mysqli_fetch_array($runquery1);
         $order_id= $row["max_val"];
@@ -33,8 +33,8 @@ if (isset($_SESSION["uid"])) {
         echo( mysqli_error($con));
     }
 
-	$sql = "INSERT INTO `orders_info` 
-	(`order_id`,`user_id`,`f_name`, `email`,`address`, 
+	$sql = "INSERT INTO `order_info` 
+	(`order_id`,`buyer_id`,`f_name`, `email`,`address`, 
 	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`) 
 	VALUES ($order_id, '$user_id','$f_name','$email', 
     '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv')";
@@ -55,10 +55,10 @@ if (isset($_SESSION["uid"])) {
             $prod_qty=$prod_qty_+$str;
             $sub_total=(int)$prod_price*(int)$prod_qty;
             $sql1="INSERT INTO `order_products` 
-            (`order_pro_id`,`order_id`,`product_id`,`qty`,`amt`) 
+            (`order_pro_id`,`order_id`,`product_id`,`qty`,`amount`) 
             VALUES (NULL, '$order_id','$prod_id','$prod_qty','$sub_total')";
             if(mysqli_query($con,$sql1)){
-                $del_sql="DELETE from cart where user_id=$user_id";
+                $del_sql="DELETE from cart where buyer_id=$user_id";
                 if(mysqli_query($con,$del_sql)){
                     echo"<script>window.location.href='store.php'</script>";
                 }else{
