@@ -12,7 +12,6 @@ $password=$_POST['password'];
 mysqli_query($con,"insert into seller(fname,lname,email,phone,address,password) values ('$f_name','$l_name','$email','$mobile','$address','$password')") 
             or die ("Query 1 is incorrect...");
             Print '<script>alert("Seller added Successful!");</script>';
-//header("location: manage_users.php"); 
 mysqli_close($con);
 }
 

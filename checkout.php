@@ -137,7 +137,7 @@ span.price {
 						</div>
 						<div class="col-50">
 							<label for="zip">Zip</label>
-							<input type="text" id="zip" name="zip" class="form-control" pattern="^[0-9]{6}(?:-[0-9]{4})?$" required>
+							<input type="text" id="zip" name="zip" class="form-control" pattern="^[0-9]{6}(?:-[0-9]{4})?$" placeholder="xxxxxx" required>
 						</div>
 						</div>
 					</div>
@@ -159,7 +159,7 @@ span.price {
 						
 						<div class="form-group" id="card-number-field">
                         <label for="cardNumber">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+                        <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="xxxxxxxxxx" required>
                     </div>
 						<label for="expdate">Exp Date</label>
 						<input type="text" id="expdate" name="expdate" class="form-control" pattern="^((0[1-9])|(1[0-2]))\/(\d{2})$" placeholder="12/22"required>
@@ -170,7 +170,7 @@ span.price {
 						<div class="col-50">
 							<div class="form-group CVV">
 								<label for="cvv">CVV</label>
-								<input type="text" class="form-control" name="cvv" id="cvv" required>
+								<input type="text" class="form-control" name="cvv" id="cvv" placeholder="xxx" required>
 						</div>
 						</div>
 					</div>
@@ -277,40 +277,7 @@ span.price {
 		</div>
 	</div>
 </section>
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
-							<form >
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		
+				
 <?php
 include "footer.php";
 ?>

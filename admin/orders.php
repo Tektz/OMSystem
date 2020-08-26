@@ -1,4 +1,13 @@
+<?php
+if(isset($_GET['action']) && $_GET['action']!="" && $_GET['action']=='delete')
+{
+   include_once "../db.php"; 
+$order_id=$_GET['order_id'];
 
+mysqli_query($con,"delete from order_info where order_id='$order_id'")or die("query is incorrect...");
+header("location: admin_home.php#orders");
+}   
+?>
         <div class="container-fluid">
                 <div class="table-responsive ps">
                   <table class="table table-hover tablesorter">
