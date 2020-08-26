@@ -63,22 +63,32 @@ session_start();
 			<div id="top-header">
 				<div class="container">					
 					<ul class="header-links pull-right">
-						<li><a href="admin/login.php"><i class="fa fa-sign-in"></i> Admin</a></li>
 						<li><?php
                              include "db.php";
                             if(isset($_SESSION["uid"])){
-                                $sql = "SELECT fname FROM buyer WHERE buyer_id='$_SESSION[uid]'";
+                                $sql = "SELECT fname FROM buyer  WHERE buyer_id='$_SESSION[uid]'";
                                 $query = mysqli_query($con,$sql);
                                 $row=mysqli_fetch_array($query);
                                 echo '
                                <div class="dropdownn">
                                   <a href="#" class="dropdownn" data-toggle="modal" data-target="#myModal" ><i class="fa fa-user-o"></i> Welcome: '.$row["fname"].'</a>
                                   <div class="dropdownn-content">
-                                    <a href="" data-toggle="modal" data-target="#profile"><i class="fa fa-user-circle" aria-hidden="true" ></i>My Profile</a>
                                     <a href="logout.php"  ><i class="fa fa-sign-in" aria-hidden="true"></i>Log out</a>
                                   </div>
                                 </div>';
-                            }else{ 
+                            }else if(isset($_SESSION["admin_id"])){
+                              $sql = "SELECT admin_username FROM admin_info  WHERE admin_id='$_SESSION[admin_id]'";
+                              $query = mysqli_query($con,$sql);
+                              $row=mysqli_fetch_array($query);
+                              echo '
+                             <div class="dropdownn">
+                                <a href="#" class="dropdownn" data-toggle="modal" data-target="#myModal" ><i class="fa fa-user-o"></i> Welcome: '.$row["admin_username"].'</a>
+                                <div class="dropdownn-content">
+                                  <a href="logout.php"  ><i class="fa fa-sign-in" aria-hidden="true"></i>Log out</a>
+                                </div>
+                              </div>';
+                            }
+                            else{ 
                                 echo '
                                 <div class="dropdownn">
                                   <a href="#" class="dropdownn" data-toggle="modal" data-target="#myModal" ><i class="fa fa-user-o"></i> My Account</a>
@@ -108,7 +118,10 @@ session_start();
 								</a>
 							</div>
 						</div>
-						<div class="col-md-6">
+
+
+
+						<!-- <div class="col-md-6">
 							<div class="header-search">
 								<form>
 									<select class="input-select">
@@ -121,8 +134,8 @@ session_start();
 									<button type="submit" id="search_btn" class="search-btn">Search</button>
 								</form>
 							</div>
-						</div>
-						<div class="col-md-3 clearfix">
+						</div> -->
+						<div class="col-md-3 clearfix " style="float:right">
 							<div class="header-ctn">
 								<!-- Cart -->
 								<div class="dropdown">

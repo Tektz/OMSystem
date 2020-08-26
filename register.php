@@ -23,7 +23,11 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 			</div>
 		";
 		exit();
-	} else {
+	}
+	 else 
+	 {
+
+
 		if(!preg_match($name,$f_name)){
 		echo "
 			<div class='alert alert-warning'>
@@ -106,19 +110,23 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 			</div>
 		";
 		exit();
-	} else {
+	} 
+	
+	else {
 		
-		$sql = "INSERT INTO 'buyer' 
-		('buyer_id', 'fname', 'lname', 'phone', 'email','password', 'address') 
-		VALUES (NULL, '$f_name', '$l_name', '$phone', '$email', '$password', '$address')";
+		$sql = "INSERT INTO buyer 
+		(buyer_id, fname, lname, phone, email,password, address) VALUES (NULL, '$f_name', '$l_name', '$phone', '$email', '$password', '$address')";
+
 		$run_query = mysqli_query($con,$sql);
+
+		
 		$_SESSION["uid"] = mysqli_insert_id($con);
 		$_SESSION["name"] = $f_name;
 		$ip_add = getenv("REMOTE_ADDR");
 		$sql = "UPDATE cart SET buyer_id = '$_SESSION[uid]' WHERE ip_add='$ip_add' AND buyer_id = -1";
 		if(mysqli_query($con,$sql)){
 			echo "register_success";
-			echo "<script> location.href='store.php'; </script>";
+			echo "<script> location.href='index.php'; </script>";
             exit;
 		}
 	}

@@ -10,8 +10,9 @@ if (isset($_POST["login_user_with_product"])) {
 	</div>
 	<div class="container-fluid">
 		<div class="login-marg">
-			<form onsubmit="return false" id="login" class="login100-form ">
+			<form action="login.php" method="POST" class="login100-form ">
 			 <div class="billing-details jumbotron">
+       <input type="hidden" name="ref_url" value="<?php echo base64_encode($_SERVER['HTTP_REFERER']);?>">
                 <div class="section-title">
                  <h2 class="login100-form-title p-b-49" >Login Here</h2>
                 </div>

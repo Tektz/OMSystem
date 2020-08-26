@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(empty($_SESSION['name'])){
+if(empty($_SESSION['admin_name'])){
   header("Location:../index.php");
 }
 ?>
@@ -62,8 +62,8 @@ if(empty($_SESSION['name'])){
 					<ul class="header-links pull-right">			
 						<li><?php
                              include "../db.php";
-                            if(isset($_SESSION["uid"])){
-                                $sql = "SELECT admin_username FROM admin_info WHERE admin_id='$_SESSION[uid]'";
+                            if(isset($_SESSION["admin_id"])){
+                                $sql = "SELECT admin_username FROM admin_info WHERE admin_id='$_SESSION[admin_id]'";
                                 $query = mysqli_query($con,$sql);
                                 $row=mysqli_fetch_array($query);
                                 echo '

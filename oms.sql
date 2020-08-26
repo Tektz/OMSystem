@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2020 at 01:39 PM
+-- Generation Time: Aug 26, 2020 at 04:19 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -95,7 +95,8 @@ INSERT INTO `buyer` (`buyer_id`, `fname`, `lname`, `phone`, `email`, `password`,
 (1, 'Ali', 'Aliin', '00759140094', 'ali@gmail.com', '984d8144fa08bfc637d2825463e184fa', 'Kinondoni Mkwajuni'),
 (6, 'Ali', 'Aliin', '00759140094', 'ali@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Kinondoni Mkwajuni'),
 (7, 'Amina', 'Amani', '0759140094', 'amina@gmail.com', 'amina123', 'Muleba'),
-(8, 'Donna', 'Donee', '0988565621', 'donna@gmail.com', 'donna123', 'Mombo');
+(8, 'Donna', 'Donee', '0988565621', 'donna@gmail.com', 'donna123', 'Mombo'),
+(9, 'abdulrasul', 'Kadala', '0987654567', 'amina@oms.com', '12345', 'Tanga');
 
 -- --------------------------------------------------------
 
@@ -120,24 +121,30 @@ INSERT INTO `cart` (`cart_id`, `p_id`, `buyer_id`, `qty`, `ip_add`) VALUES
 (2, 13, 6, 1, '127.0.0.1'),
 (3, 13, 6, 1, '127.0.0.1'),
 (4, 13, 6, 1, '127.0.0.1'),
-(5, 10, 0, 1, '127.0.0.1'),
-(6, 7, 0, 1, '127.0.0.1'),
-(7, 10, 0, 1, '127.0.0.1'),
-(8, 10, 0, 1, '127.0.0.1'),
-(9, 10, 0, 1, '127.0.0.1'),
 (10, 13, 0, 1, '127.0.0.1'),
 (11, 13, 0, 1, '127.0.0.1'),
-(12, 10, 0, 1, '127.0.0.1'),
-(13, 7, 0, 1, '127.0.0.1'),
 (14, 7, 6, 1, '127.0.0.1'),
 (15, 11, 6, 1, '127.0.0.1'),
 (16, 10, 6, 1, '127.0.0.1'),
 (17, 13, 6, 1, '127.0.0.1'),
 (18, 10, 6, 1, '127.0.0.1'),
 (19, 7, 6, 1, '127.0.0.1'),
-(23, 7, 7, 4, '127.0.0.1'),
-(25, 10, 7, 1, '127.0.0.1'),
-(26, 7, 7, 1, '127.0.0.1');
+(33, 12, 7, 1, '127.0.0.1'),
+(36, 11, 7, 1, '127.0.0.1'),
+(37, 12, 7, 1, '127.0.0.1'),
+(39, 11, 0, 9, '127.0.0.1'),
+(41, 12, 4, 1, '127.0.0.1'),
+(42, 21, 0, 1, '127.0.0.1'),
+(43, 12, 0, 1, '127.0.0.1'),
+(44, 11, 0, 1, '127.0.0.1'),
+(45, 21, 0, 1, '127.0.0.1'),
+(46, 12, 0, 1, '127.0.0.1'),
+(47, 12, 0, 1, '127.0.0.1'),
+(48, 12, 0, 1, '127.0.0.1'),
+(49, 12, 0, 1, '127.0.0.1'),
+(50, 21, 0, 1, '127.0.0.1'),
+(51, 21, 0, 1, '127.0.0.1'),
+(52, 11, 0, 1, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -192,7 +199,8 @@ INSERT INTO `order_info` (`order_id`, `buyer_id`, `f_name`, `email`, `address`, 
 (1, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'tanzanis', 123456, 'mmjj', '1235678', '12/22', 1, 540000, 123, 'Pending'),
 (2, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 1, 780000, 123, 'Pending'),
 (3, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 3, 780000, 123, 'Pending'),
-(4, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'Kibaha', 'kibaha', 123456, 'fake', '1234567890', '11/32', 1, 610000, 123, 'Pending');
+(5, 7, 'Amina Amani', 'amina@gmail.com', 'Muleba', 'Bukoba', 'muleba', 677890, 'Amina Amani', '77778789909', '07/22', 1, 610000, 567, 'Pending'),
+(6, 9, 'abdulrasul', 'amina@oms.com', 'Tanga', 'Bukoba', 'muleba', 123456, 'Amina Amani', '123456789', '12/22', 1, 500000, 123, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -214,7 +222,8 @@ CREATE TABLE `order_products` (
 
 INSERT INTO `order_products` (`order_pro_id`, `order_id`, `product_id`, `qty`, `amount`) VALUES
 (1, 3, 12, 1, 780000),
-(2, 4, 10, 1, 610000);
+(3, 5, 10, 1, 610000),
+(4, 6, 21, 1, 500000);
 
 -- --------------------------------------------------------
 
@@ -243,7 +252,8 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_im
 (10, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395561_HuaweiP40.jpg', 610000, NULL, 1, 1, 'Huawei P40'),
 (11, 'Brackberry B1', 'Barand new Brackberry Smart phone, Storage 32GB', '1596520184_b1.jpg', 430000, NULL, 4, 9, 'Brackberry B1'),
 (12, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644473_i10.jpg', 780000, NULL, 2, 3, 'iPhone 10 Pro'),
-(20, 'Iphone X', 'Barand new iPhone 10 pro, Storage 64GB', '1596644556_i10.jpg', 980000, NULL, 2, 3, 'iPhone X');
+(21, 'Nokia N95', 'Nokia Lumia N95', '1598434249_windows1.jpg', 500000, NULL, 3, 7, 'Nokia Lumia'),
+(22, 'Nokia 10', 'Nokia Lumia', '1598434273_windows1.jpg', 350000, NULL, 3, 7, 'Nokia Lumia');
 
 -- --------------------------------------------------------
 
@@ -352,13 +362,13 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `buyer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `buyer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -370,13 +380,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `seller`

@@ -7,7 +7,7 @@
     }
     </style>
                 <div class="container-fluid">
-								<form id="signup_form" onsubmit="return false" class="login100-form">
+								<form id="signup_form" action="register.php" method="POST" class="login100-form">
 									<div class="billing-details jumbotron">
                                     <div class="section-title">
                                         <h2 class="login100-form-title p-b-49" >Register Here</h2>
