@@ -88,6 +88,18 @@ session_start();
                                 </div>
                               </div>';
                             }
+                            else if(isset($_SESSION["seller_id"])){
+                              $sql = "SELECT fname FROM seller  WHERE seller_id='$_SESSION[seller_id]'";
+                              $query = mysqli_query($con,$sql);
+                              $row=mysqli_fetch_array($query);
+                              echo '
+                             <div class="dropdownn">
+                                <a href="#" class="dropdownn" data-toggle="modal" data-target="#myModal" ><i class="fa fa-user-o"></i> Welcome: '.$row["fname"].'</a>
+                                <div class="dropdownn-content">
+                                  <a href="logout.php"  ><i class="fa fa-sign-in" aria-hidden="true"></i>Log out</a>
+                                </div>
+                              </div>';
+                            }
                             else{ 
                                 echo '
                                 <div class="dropdownn">

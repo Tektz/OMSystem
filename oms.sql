@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2020 at 04:19 PM
+-- Generation Time: Aug 27, 2020 at 03:49 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -253,7 +253,9 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_im
 (11, 'Brackberry B1', 'Barand new Brackberry Smart phone, Storage 32GB', '1596520184_b1.jpg', 430000, NULL, 4, 9, 'Brackberry B1'),
 (12, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644473_i10.jpg', 780000, NULL, 2, 3, 'iPhone 10 Pro'),
 (21, 'Nokia N95', 'Nokia Lumia N95', '1598434249_windows1.jpg', 500000, NULL, 3, 7, 'Nokia Lumia'),
-(22, 'Nokia 10', 'Nokia Lumia', '1598434273_windows1.jpg', 350000, NULL, 3, 7, 'Nokia Lumia');
+(22, 'Nokia 10', 'Nokia Lumia', '1598434273_windows1.jpg', 340000, NULL, 3, 7, 'Nokia Lumia'),
+(23, 'Nokia N80', '128 GB storage RAM 4GB', '1598534635_nokia1.jpg', 650000, 2, 3, 7, 'Nokia Lumia'),
+(24, 'Nokia N80', '128 GB storage RAM 4GB', '1598534830_nokia1.jpg', 650000, 2, 3, 7, 'Nokia Lumia');
 
 -- --------------------------------------------------------
 
@@ -386,7 +388,7 @@ ALTER TABLE `order_products`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `seller`
