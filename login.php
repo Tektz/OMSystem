@@ -47,29 +47,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             exit;
 
 	}
-	else if($count == 0){
-                $email = mysqli_real_escape_string($con,$_POST["email"]);
-                $password =$_POST["password"];
-                $sql = "SELECT * FROM seller WHERE email = '$email' AND password = '$password'";
-                $run_query = mysqli_query($con,$sql);
-                $count = mysqli_num_rows($run_query);
-
-            if($count == 1){
-                $row = mysqli_fetch_array($run_query);
-                $_SESSION["seller_id"] = $row["seller_id"];
-                $_SESSION["seller_name"] = $row["fname"];
-                $ip_add = getenv("REMOTE_ADDR");
-               
-                    echo "login_success";
-
-                    echo "<script> location.href='seller/seller_home.php'; </script>";
-                    exit;
-
-            }else{
-                    echo "<span style='color:red;'>Please register before login or see your Admin for login Details</span>";
-                    exit();
-				}
-		}
+	
 		else{
 			$email = mysqli_real_escape_string($con,$_POST["email"]);
 			$password =$_POST["password"];
@@ -89,8 +67,27 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 				exit;
 
 		}else{
+			$email = mysqli_real_escape_string($con,$_POST["email"]);
+			$password =$_POST["password"];
+			$sql = "SELECT * FROM seller WHERE email = '$email' AND password = '$password'";
+			$run_query = mysqli_query($con,$sql);
+			$count = mysqli_num_rows($run_query);
+
+		if($count == 1){
+			$row = mysqli_fetch_array($run_query);
+			$_SESSION["seller_id"] = $row["seller_id"];
+			$_SESSION["seller_name"] = $row["fname"];
+			$ip_add = getenv("REMOTE_ADDR");
+		   
+				echo "login_success";
+
+				echo "<script> location.href='seller/seller_home.php'; </script>";
+				exit;
+
+		}else{
 				echo "<span style='color:red;'>Please register before login or see your Admin for login Details</span>";
 				exit();
+			}
 			}
 	}		
 }

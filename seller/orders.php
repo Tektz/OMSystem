@@ -1,5 +1,5 @@
 
-        <div class="container-fluid">
+        <div class="container-fluid col-sm-10">
                 <div class="table-responsive ps">
                   <table class="table table-hover tablesorter">
                     <thead class="text-primary">
