@@ -29,27 +29,27 @@ mysqli_close($con);
 			 <div class="billing-details jumbotron">
                 <div class="form-group">
                  <label for="name">First Name</label>
-                 <input class="input input-borders" type="text" name="fname" placeholder="First Name" id="name" required>
+                 <input class="input input-borders" type="text" name="fname" pattern="^[a-zA-Z ]+$" placeholder="First Name" id="name" required>
                 </div>
                <div class="form-group">
                <label for="name">Last Name</label>
-               <input class="input input-borders" type="text" name="lname" placeholder="Last Name" id="name" required>
+               <input class="input input-borders" type="text" name="lname" pattern="^[a-zA-Z ]+$" placeholder="Last Name" id="name" required>
                 </div>
                 <div class="form-group">
                <label for="email">Email</label>
-               <input class="input input-borders" type="email" name="email" placeholder="Email" id="name" required>
+               <input class="input input-borders" type="email" name="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$" placeholder="Email" id="name" required>
                 </div>
                 <div class="form-group">
                <label for="name">Phone</label>
-               <input class="input input-borders" type="number" name="phone" placeholder="Phone No" id="name" required>
+               <input class="input input-borders" type="tel" name="phone" pattern="^[0-9]{10}$" placeholder="Phone No" id="name" required>
                 </div>
                 <div class="form-group">
                <label for="name">Address</label>
-               <input class="input input-borders" type="text" name="address" placeholder="Address" id="name">
+               <input class="input input-borders" type="text" name="address" pattern="^[a-zA-Z ]+$" placeholder="Address" id="name">
                 </div>
                 <div class="form-group">
                <label for="name">Password</label>
-               <input class="input input-borders" type="password" id="password" name="password" placeholder="Password">
+               <input class="input input-borders" type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" name="password" placeholder="At least 4 characters, Upper case letter and lower case later" required>
                 </div>
                 <div class="form-group">
                 <button class="btn btn-fill btn-primary" type="submit" id="btn_add" name="btn_add">Add Seller</button>

@@ -14,26 +14,26 @@
                                     </div>
                                     <div class="form-group ">
                                     
-                                        <input class="input form-control input-borders" type="text" name="f_name" id="f_name" placeholder="First Name">
+                                        <input class="input form-control input-borders" type="text" pattern="^[a-zA-Z ]+$" name="f_name" id="f_name" placeholder="First Name" required>
                                     </div>
                                     <div class="form-group">
                                     
-                                        <input class="input form-control input-borders" type="text" name="l_name" id="l_name" placeholder="Last Name">
+                                        <input class="input form-control input-borders" type="text" pattern="^[a-zA-Z ]+$" name="l_name" id="l_name" placeholder="Last Name" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="email" name="email"  placeholder="Email">
+                                        <input class="input form-control input-borders" type="email" name="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$" placeholder="Email" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="password" name="password" id="password" placeholder="password">
+                                        <input class="input form-control input-borders" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" placeholder="password" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="password" name="repassword" id="repassword" placeholder="confirm password">
+                                        <input class="input form-control input-borders" type="password" name="repassword" id="repassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" placeholder="confirm password" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="number" name="phone" id="mobile" placeholder="mobile">
+                                        <input class="input form-control input-borders" type="tel" name="phone" id="mobile" pattern="^[0-9]{10}$" placeholder="phone number" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="text" name="address" id="address" placeholder="Address">
+                                        <input class="input form-control input-borders" type="text" pattern="^[a-zA-Z ]+$" name="address" id="address" placeholder="Address" required>
                                     </div>                                   
                                     <div style="form-group">
                                        <input class="primary-btn btn-block"  value="Sign Up" type="submit" name="signup_button">

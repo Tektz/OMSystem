@@ -43,7 +43,7 @@
 			 <div class="billing-details jumbotron">
                 <div class="form-group">
                  <label for="name">Product Name</label>
-                 <input class="input input-borders" type="text" name="pname" placeholder="Product Name" id="name" required>
+                 <input class="input input-borders" type="text" name="pname" pattern="^[a-zA-Z ]+$" placeholder="Product Name" id="name" required>
                 </div>
                <div class="form-group">
                <label for="name">Description</label>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group">
                <label for="name">Price</label>
-               <input class="input input-borders" type="number" name="pprice" placeholder="Price" id="name" required>
+               <input class="input input-borders" type="number" name="pprice" pattern="^[0-9]{7}$" placeholder="Price" id="name" required>
                 </div>
 <div class="form-group">
   <label for="cat">Category</label>

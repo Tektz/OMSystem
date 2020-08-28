@@ -126,7 +126,7 @@ span.price {
 						<label for="email"><i class="fa fa-envelope"></i> Email</label>
 						<input type="text" id="email" name="email" class="form-control" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$" value="'.$row["email"].'" required>
 						<label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-						<input type="text" id="adr" name="address" class="form-control" value="'.$row["address"].'" required>
+						<input type="text" id="adr" name="address" class="form-control" pattern="^[a-zA-Z ]+$" value="'.$row["address"].'" required>
 						<label for="city"><i class="fa fa-institution"></i> City</label>
 						<input type="text" id="city" name="city" class="form-control" value="" pattern="^[a-zA-Z ]+$" required>
 
@@ -137,7 +137,7 @@ span.price {
 						</div>
 						<div class="col-50">
 							<label for="zip">Zip</label>
-							<input type="text" id="zip" name="zip" class="form-control" pattern="^[0-9]{6}(?:-[0-9]{4})?$" placeholder="xxxxxx" required>
+							<input type="text" id="zip" name="zip" class="form-control" pattern="^[0-9]{6}$" placeholder="Enter 6 digits" required>
 						</div>
 						</div>
 					</div>
@@ -159,10 +159,10 @@ span.price {
 						
 						<div class="form-group" id="card-number-field">
                         <label for="cardNumber">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="xxxxxxxxxx" required>
+                        <input type="text" class="form-control" pattern="^[0-9]{10}$" id="cardNumber" name="cardNumber" placeholder="Enter 10 digits card number" required>
                     </div>
 						<label for="expdate">Exp Date</label>
-						<input type="text" id="expdate" name="expdate" class="form-control" pattern="^((0[1-9])|(1[0-2]))\/(\d{2})$" placeholder="12/22"required>
+						<input type="text" id="expdate" name="expdate" class="form-control" pattern="^((0[1-9])|(1[0-2]))\/(\d{2})$" placeholder="mm/yy"required>
 						
 
 						<div class="row">
@@ -170,7 +170,7 @@ span.price {
 						<div class="col-50">
 							<div class="form-group CVV">
 								<label for="cvv">CVV</label>
-								<input type="text" class="form-control" name="cvv" id="cvv" placeholder="xxx" required>
+								<input type="text" class="form-control" pattern="^[0-9]{3}$" name="cvv" id="cvv" placeholder="Enter 3 digits" required>
 						</div>
 						</div>
 					</div>
