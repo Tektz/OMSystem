@@ -88,6 +88,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 			Print '<script>alert("Please register before login or see your Admin for login Details");</script>';
 		
 				echo "<script> location.href='index.php'; </script>";
+				echo "<span style='color:red;'>Please register before login or see your Admin for login Details</span>";
 				exit();
 			}
 			}

@@ -18,7 +18,7 @@ if(isset($_POST['edit'])) {
                 <div class="table-responsive ps">
                   <table class="table table-hover tablesorter">
                     <thead class="text-primary">
-                      <tr><th>ID</th><th>Customer Name</th><th>Payment</th><th>Expire Date</th><th>Quantity</th><th>Total Amount</th><th>Status</th><th>Action</th>
+                      <tr><th>ID</th><th>Customer Name</th><th>Expire Date</th><th>Quantity</th><th>Total Amount</th><th>Status</th><th>Action</th>
                     </tr></thead>
                     <tbody>
                       <?php 
@@ -27,7 +27,7 @@ if(isset($_POST['edit'])) {
                         while(list($order_id,$cus_name,$exp_date,$qty,$t_amount,$status)=mysqli_fetch_array($result))
                         {	
                           ?>
-                      <tr><td><?php echo $order_id?></td><td><?php echo  $cus_name?></td><td></td><td> <?php echo  $exp_date?></td><td><?php echo $qty?></td><td><?php echo  $t_amount?></td>
+                      <tr><td><?php echo $order_id?></td><td><?php echo  $cus_name?></td><td> <?php echo  $exp_date?></td><td><?php echo $qty?></td><td><?php echo  $t_amount?></td>
 
                       <td>
                       <form method="post" action="">

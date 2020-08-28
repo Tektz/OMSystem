@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2020 at 12:57 PM
+-- Generation Time: Aug 28, 2020 at 02:07 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -96,7 +96,8 @@ INSERT INTO `buyer` (`buyer_id`, `fname`, `lname`, `phone`, `email`, `password`,
 (6, 'Ali', 'Aliin', '00759140094', 'ali@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Kinondoni Mkwajuni'),
 (7, 'Amina', 'Amani', '0759140094', 'amina@gmail.com', 'amina123', 'Muleba'),
 (8, 'Donna', 'Donee', '0988565621', 'donna@gmail.com', 'donna123', 'Mombo'),
-(9, 'abdulrasul', 'Kadala', '0987654567', 'amina@oms.com', '12345', 'Tanga');
+(9, 'abdulrasul', 'Kadala', '0987654567', 'amina@oms.com', '12345', 'Tanga'),
+(10, 'Josephat', 'Mlango', '0987654567', 'josephat@gmail.com', 'jose123', 'Mombasa');
 
 -- --------------------------------------------------------
 
@@ -200,7 +201,8 @@ INSERT INTO `order_info` (`order_id`, `buyer_id`, `f_name`, `email`, `address`, 
 (5, 7, 'Amina Amani', 'amina@gmail.com', 'Muleba', 'Bukoba', 'muleba', 677890, 'Amina Amani', '77778789909', '07/22', 1, 610000, 567, 'Pending', NULL),
 (6, 9, 'abdulrasul', 'amina@oms.com', 'Tanga', 'Bukoba', 'muleba', 123456, 'Amina Amani', '123456789', '12/22', 1, 500000, 123, 'Pending', 2),
 (7, 7, 'abdulrasul', 'amina@oms.com', 'Tanga', 'Bukoba', 'muleba', 123456, 'Amina Amani', '123456788903', '10/21', 1, 430000, 200, 'Pending', 2),
-(8, 8, 'Donna Donee', 'donna@gmail.com', 'Mombo', 'Tanga', 'tanga', 223344, 'Donatha', '12345687879', '09/20', 1, 430000, 213, 'Completed', 2);
+(8, 8, 'Donna Donee', 'donna@gmail.com', 'Mombo', 'Tanga', 'tanga', 223344, 'Donatha', '12345687879', '09/20', 1, 430000, 213, 'Completed', 2),
+(9, 10, 'Josephat Mlango', 'josephat@gmail.com', 'Mombasa', 'Mombasa', 'Mombasa', 223443, 'Josephat', '2233445566', '10/21', 1, 610000, 323, 'Pending', 1);
 
 -- --------------------------------------------------------
 
@@ -225,7 +227,8 @@ INSERT INTO `order_products` (`order_pro_id`, `order_id`, `product_id`, `qty`, `
 (3, 5, 10, 1, 610000),
 (4, 6, 21, 1, 500000),
 (5, 7, 25, 1, 430000),
-(6, 8, 25, 1, 430000);
+(6, 8, 25, 1, 430000),
+(7, 9, 10, 1, 610000);
 
 -- --------------------------------------------------------
 
@@ -250,12 +253,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_image`, `product_price`, `seller_id`, `cat_id`, `brand_id`, `product_keywords`) VALUES
-(7, 'Tecno J8', 'Barand new Tecno J8, Storage 32GB', '1596394735_tecno.jpg', 540000, NULL, 1, 6, 'Tecno J8 Android'),
-(10, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395561_HuaweiP40.jpg', 610000, NULL, 1, 1, 'Huawei P40'),
-(11, 'Brackberry B1', 'Barand new Brackberry Smart phone, Storage 32GB', '1596520184_b1.jpg', 430000, NULL, 4, 9, 'Brackberry B1'),
-(12, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644473_i10.jpg', 780000, NULL, 2, 3, 'iPhone 10 Pro'),
-(21, 'Nokia N95', 'Nokia Lumia N95', '1598434249_windows1.jpg', 500000, NULL, 3, 7, 'Nokia Lumia'),
-(22, 'Nokia 10', 'Nokia Lumia', '1598434273_windows1.jpg', 340000, NULL, 3, 7, 'Nokia Lumia'),
+(7, 'Tecno J8', 'Barand new Tecno J8, Storage 32GB', '1596394735_tecno.jpg', 540000, 1, 1, 6, 'Tecno J8 Android'),
+(10, 'Huawei P40', 'Huawei storage 128gb ram 4gb', '1596395561_HuaweiP40.jpg', 610000, 1, 1, 1, 'Huawei P40'),
+(11, 'Brackberry B1', 'Barand new Brackberry Smart phone, Storage 32GB', '1596520184_b1.jpg', 430000, 1, 4, 9, 'Brackberry B1'),
+(12, 'Iphone 10 pro', 'Barand new iPhone 10 pro, Storage 32GB', '1596644473_i10.jpg', 780000, 2, 2, 3, 'iPhone 10 Pro'),
+(21, 'Nokia N95', 'Nokia Lumia N95', '1598434249_windows1.jpg', 500000, 1, 3, 7, 'Nokia Lumia'),
+(22, 'Nokia 10', 'Nokia Lumia', '1598434273_windows1.jpg', 340000, 1, 3, 7, 'Nokia Lumia'),
 (23, 'Nokia N80', '128 GB storage RAM 4GB', '1598534635_nokia1.jpg', 650000, 2, 3, 7, 'Nokia Lumia'),
 (24, 'Nokia N70', '64 GB storage RAM 4GB', '1598534830_nokia1.jpg', 550000, 2, 3, 7, 'Nokia Lumia'),
 (25, 'Blackberry S1', 'Storage 16gb', '1598610370_b2.jpg', 410000, 2, 4, 9, 'brackberry smart'),
@@ -282,6 +285,7 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`seller_id`, `fname`, `lname`, `email`, `phone`, `address`, `password`) VALUES
+(1, 'Salumu', 'Hassani', 'salumu@gmail.com', '0784708787', 'Kinondoni dsm', 'salum123'),
 (2, 'Amani', 'Hakeem', 'amani@oms.com', '0737777222', 'Moshi', 'amani123');
 
 --
@@ -369,13 +373,13 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `buyer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `buyer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -387,7 +391,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product`

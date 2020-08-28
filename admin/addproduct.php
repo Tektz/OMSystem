@@ -81,21 +81,14 @@
   </select>
 </div>
 <div class="form-group">
-<?php 
-$result=mysqli_query($con,"select seller_id, fname, lname from seller")or die ("query 2 incorrect...");
-
-while(list($seller_id,$fname,$lname)=
-mysqli_fetch_array($result))
-{?>
   <label for="seller">Seller</label>
   <select class="form-control" name="seller" id="seller">
     <option value="1" selected>Select Seller Name</option>
-    <option value="<?php echo  $seller_id?>"><?php echo  $fname?> <?php echo  $lname?></option>
+    <option value="1">Salum Hassani</option>
+    <option value="2">Amani Akeem</option>
   </select>
 </div>
-<?php
-}
-?>
+
                 <div class="form-group">
                <label for="name">Keywords</label>
                <input class="input input-borders" type="text" name="pkeyword" placeholder="Keywords" id="name">
