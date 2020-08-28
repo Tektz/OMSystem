@@ -10,25 +10,25 @@ include "header.php";
 <style>
 
 .row-checkout {
-  display: -ms-flexbox; /* IE10 */
+  display: -ms-flexbox; 
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
+  -ms-flex-wrap: wrap; 
   flex-wrap: wrap;
   margin: 0 -16px;
 }
 
 .col-25 {
-  -ms-flex: 25%; /* IE10 */
+  -ms-flex: 25%; 
   flex: 25%;
 }
 
 .col-50 {
-  -ms-flex: 50%; /* IE10 */
+  -ms-flex: 50%; 
   flex: 50%;
 }
 
 .col-75 {
-  -ms-flex: 75%; /* IE10 */
+  -ms-flex: 75%; 
   flex: 75%;
 }
 
@@ -91,7 +91,7 @@ span.price {
   color: grey;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+
 @media (max-width: 800px) {
   .row-checkout {
     flex-direction: column-reverse;
@@ -186,12 +186,14 @@ span.price {
 						$amount_ = $_POST['amount_'.$i];
 						$quantity_ = $_POST['quantity_'.$i];
 						$total=$total+$amount_ ;
-						$sql = "SELECT product_id FROM product WHERE product_name='$item_name_'";
+						$sql = "SELECT product_id, seller_id FROM product WHERE product_name='$item_name_'";
 						$query = mysqli_query($con,$sql)or die( mysqli_error($con));
 						$row=mysqli_fetch_array($query);
 						$product_id=$row["product_id"];
+						$seller_id=$row["seller_id"];
 						echo "	
 						<input type='hidden' name='prod_id_$i' value='$product_id'>
+						<input type='hidden' name='sell_id' value='$seller_id'>
 						<input type='hidden' name='prod_price_$i' value='$amount_'>
 						<input type='hidden' name='prod_qty_$i' value='$quantity_'>
 						";

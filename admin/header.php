@@ -96,7 +96,7 @@ if(empty($_SESSION['admin_name'])){
 							<div class="header-logo">
 								<a href="#" class="logo">
 								<font style="font-style:normal; font-size: 32px;color: aliceblue;font-family: serif">
-                                        Online Mobilephone Shop
+                                        Online Mobilephone Shop &nbsp; - &nbsp; Admin Panel
                                     </font>	
 								</a>
 							</div>

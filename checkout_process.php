@@ -17,7 +17,7 @@ if (isset($_SESSION["uid"])) {
     $cardnumberstr=(string)$cardnumber;
     $total_count=$_POST['total_count'];
     $prod_total = $_POST['total_price'];
-    
+    $seller_id = $_POST['sell_id'];
     
     $sql0="SELECT order_id from `order_info`";
     $runquery=mysqli_query($con,$sql0);
@@ -32,12 +32,11 @@ if (isset($_SESSION["uid"])) {
         $order_id=$order_id+1;
         echo( mysqli_error($con));
     }
-
 	$sql = "INSERT INTO `order_info` 
 	(`order_id`,`buyer_id`,`f_name`, `email`,`address`, 
-	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`) 
+	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`,`seller_id`) 
 	VALUES ($order_id, '$user_id','$f_name','$email', 
-    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv')";
+    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv','$seller_id')";
 
 
     if(mysqli_query($con,$sql)){
@@ -60,6 +59,7 @@ if (isset($_SESSION["uid"])) {
             if(mysqli_query($con,$sql1)){
                 $del_sql="DELETE from cart where buyer_id=$user_id";
                 if(mysqli_query($con,$del_sql)){
+                    Print '<script>alert("Odder has been received, you will be notified via email once the suplier process your order!");</script>';
                     echo"<script>window.location.href='store.php'</script>";
                 }else{
                     echo(mysqli_error($con));

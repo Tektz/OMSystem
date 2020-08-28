@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2020 at 03:49 PM
+-- Generation Time: Aug 28, 2020 at 12:57 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -129,9 +129,6 @@ INSERT INTO `cart` (`cart_id`, `p_id`, `buyer_id`, `qty`, `ip_add`) VALUES
 (17, 13, 6, 1, '127.0.0.1'),
 (18, 10, 6, 1, '127.0.0.1'),
 (19, 7, 6, 1, '127.0.0.1'),
-(33, 12, 7, 1, '127.0.0.1'),
-(36, 11, 7, 1, '127.0.0.1'),
-(37, 12, 7, 1, '127.0.0.1'),
 (39, 11, 0, 9, '127.0.0.1'),
 (41, 12, 4, 1, '127.0.0.1'),
 (42, 21, 0, 1, '127.0.0.1'),
@@ -188,19 +185,22 @@ CREATE TABLE `order_info` (
   `prod_count` int(15) DEFAULT NULL,
   `total_amt` int(15) DEFAULT NULL,
   `cvv` int(5) NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'Pending'
+  `status` varchar(10) NOT NULL DEFAULT 'Pending',
+  `seller_id` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order_info`
 --
 
-INSERT INTO `order_info` (`order_id`, `buyer_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`, `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`, `status`) VALUES
-(1, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'tanzanis', 123456, 'mmjj', '1235678', '12/22', 1, 540000, 123, 'Pending'),
-(2, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 1, 780000, 123, 'Pending'),
-(3, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 3, 780000, 123, 'Pending'),
-(5, 7, 'Amina Amani', 'amina@gmail.com', 'Muleba', 'Bukoba', 'muleba', 677890, 'Amina Amani', '77778789909', '07/22', 1, 610000, 567, 'Pending'),
-(6, 9, 'abdulrasul', 'amina@oms.com', 'Tanga', 'Bukoba', 'muleba', 123456, 'Amina Amani', '123456789', '12/22', 1, 500000, 123, 'Pending');
+INSERT INTO `order_info` (`order_id`, `buyer_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`, `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`, `status`, `seller_id`) VALUES
+(1, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'tanzanis', 123456, 'mmjj', '1235678', '12/22', 1, 540000, 123, 'Pending', NULL),
+(2, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 1, 780000, 123, 'Completed', NULL),
+(3, 1, 'Ali Aliin', 'ali@gmail.com', 'Kinondoni Mkwajuni', 'ubungo', 'ubungp', 123456, 'msa', '123456', '12/22', 3, 780000, 123, 'Cancelled', NULL),
+(5, 7, 'Amina Amani', 'amina@gmail.com', 'Muleba', 'Bukoba', 'muleba', 677890, 'Amina Amani', '77778789909', '07/22', 1, 610000, 567, 'Pending', NULL),
+(6, 9, 'abdulrasul', 'amina@oms.com', 'Tanga', 'Bukoba', 'muleba', 123456, 'Amina Amani', '123456789', '12/22', 1, 500000, 123, 'Pending', 2),
+(7, 7, 'abdulrasul', 'amina@oms.com', 'Tanga', 'Bukoba', 'muleba', 123456, 'Amina Amani', '123456788903', '10/21', 1, 430000, 200, 'Pending', 2),
+(8, 8, 'Donna Donee', 'donna@gmail.com', 'Mombo', 'Tanga', 'tanga', 223344, 'Donatha', '12345687879', '09/20', 1, 430000, 213, 'Completed', 2);
 
 -- --------------------------------------------------------
 
@@ -223,7 +223,9 @@ CREATE TABLE `order_products` (
 INSERT INTO `order_products` (`order_pro_id`, `order_id`, `product_id`, `qty`, `amount`) VALUES
 (1, 3, 12, 1, 780000),
 (3, 5, 10, 1, 610000),
-(4, 6, 21, 1, 500000);
+(4, 6, 21, 1, 500000),
+(5, 7, 25, 1, 430000),
+(6, 8, 25, 1, 430000);
 
 -- --------------------------------------------------------
 
@@ -255,7 +257,9 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_im
 (21, 'Nokia N95', 'Nokia Lumia N95', '1598434249_windows1.jpg', 500000, NULL, 3, 7, 'Nokia Lumia'),
 (22, 'Nokia 10', 'Nokia Lumia', '1598434273_windows1.jpg', 340000, NULL, 3, 7, 'Nokia Lumia'),
 (23, 'Nokia N80', '128 GB storage RAM 4GB', '1598534635_nokia1.jpg', 650000, 2, 3, 7, 'Nokia Lumia'),
-(24, 'Nokia N80', '128 GB storage RAM 4GB', '1598534830_nokia1.jpg', 650000, 2, 3, 7, 'Nokia Lumia');
+(24, 'Nokia N70', '64 GB storage RAM 4GB', '1598534830_nokia1.jpg', 550000, 2, 3, 7, 'Nokia Lumia'),
+(25, 'Blackberry S1', 'Storage 16gb', '1598610370_b2.jpg', 410000, 2, 4, 9, 'brackberry smart'),
+(26, 'Blackberry Smart', 'Storage 32gb', '1598610411_b2.jpg', 430000, 2, 4, 9, 'brackberry smart');
 
 -- --------------------------------------------------------
 
@@ -319,7 +323,8 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `order_info`
   ADD PRIMARY KEY (`order_id`),
-  ADD KEY `buyer_id` (`buyer_id`);
+  ADD KEY `buyer_id` (`buyer_id`),
+  ADD KEY `order_seller` (`seller_id`);
 
 --
 -- Indexes for table `order_products`
@@ -370,7 +375,7 @@ ALTER TABLE `buyer`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -382,13 +387,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `seller`
@@ -404,7 +409,8 @@ ALTER TABLE `seller`
 -- Constraints for table `order_info`
 --
 ALTER TABLE `order_info`
-  ADD CONSTRAINT `order_buyer` FOREIGN KEY (`buyer_id`) REFERENCES `buyer` (`buyer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_buyer` FOREIGN KEY (`buyer_id`) REFERENCES `buyer` (`buyer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_seller` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`seller_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_products`

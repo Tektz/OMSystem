@@ -6,6 +6,7 @@
  $price=$_POST['pprice'];
  $pcat=$_POST['pcat'];
  $pbrand=$_POST['pbrand'];
+ $seller_id=$_POST['seller'];
  $pkeyword=$_POST['pkeyword'];
  
  $picture_name=$_FILES['picture']['name'];
@@ -20,8 +21,8 @@
          $pic_name=time()."_".$picture_name;
          move_uploaded_file($picture_tmp_name,"../product_images/".$pic_name);
          
- mysqli_query($con,"insert into product (product_name, product_desc,product_image,product_price, cat_id,brand_id, product_keywords) 
- values ('$pname','$pdesc','$pic_name','$price','$pcat','$pbrand','$pkeyword')") or die ("query incorrect");
+ mysqli_query($con,"insert into product (product_name, product_desc,product_image,product_price,seller_id, cat_id,brand_id, product_keywords) 
+ values ('$pname','$pdesc','$pic_name','$price','$seller_id','$pcat','$pbrand','$pkeyword')") or die ("query incorrect");
 
   Print '<script>alert("Product added Successful!");</script>';
   
@@ -79,6 +80,22 @@
     <option value="9">Blackberry</option>
   </select>
 </div>
+<div class="form-group">
+<?php 
+$result=mysqli_query($con,"select seller_id, fname, lname from seller")or die ("query 2 incorrect...");
+
+while(list($seller_id,$fname,$lname)=
+mysqli_fetch_array($result))
+{?>
+  <label for="seller">Seller</label>
+  <select class="form-control" name="seller" id="seller">
+    <option value="1" selected>Select Seller Name</option>
+    <option value="<?php echo  $seller_id?>"><?php echo  $fname?> <?php echo  $lname?></option>
+  </select>
+</div>
+<?php
+}
+?>
                 <div class="form-group">
                <label for="name">Keywords</label>
                <input class="input input-borders" type="text" name="pkeyword" placeholder="Keywords" id="name">
