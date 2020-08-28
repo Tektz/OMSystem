@@ -113,9 +113,8 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 	} 
 	
 	else {
-		
-		$sql = "INSERT INTO buyer 
-		(buyer_id, fname, lname, phone, email,password, address) VALUES (NULL, '$f_name', '$l_name', '$phone', '$email', '$password', '$address')";
+		$passwordencoded = md5($password);
+		$sql = "INSERT INTO buyer(buyer_id, fname, lname, phone, email,password, address) VALUES (NULL, '$f_name', '$l_name', '$phone', '$email', '$passwordencoded', '$address')";
 
 		$run_query = mysqli_query($con,$sql);
 

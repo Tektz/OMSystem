@@ -7,6 +7,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 	$email = mysqli_real_escape_string($con,$_POST["email"]);
 	$ref_url =isset($_POST['ref_url'])?base64_decode($_POST['ref_url']):'';
 	$password = $_POST["password"];
+	$password = md5($password);
 	$sql = "SELECT * FROM buyer WHERE email = '$email' AND password = '$password'";
 	$run_query = mysqli_query($con,$sql);
 	$count = mysqli_num_rows($run_query);
@@ -51,6 +52,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 		else{
 			$email = mysqli_real_escape_string($con,$_POST["email"]);
 			$password =$_POST["password"];
+			$password = md5($password);
 			$sql = "SELECT * FROM admin_info WHERE admin_email = '$email' AND admin_password = '$password'";
 			$run_query = mysqli_query($con,$sql);
 			$count = mysqli_num_rows($run_query);
@@ -69,6 +71,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 		}else{
 			$email = mysqli_real_escape_string($con,$_POST["email"]);
 			$password =$_POST["password"];
+			$password = md5($password);
 			$sql = "SELECT * FROM seller WHERE email = '$email' AND password = '$password'";
 			$run_query = mysqli_query($con,$sql);
 			$count = mysqli_num_rows($run_query);

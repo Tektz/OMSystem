@@ -80,12 +80,21 @@
     <option value="9">Blackberry</option>
   </select>
 </div>
+
 <div class="form-group">
+
   <label for="seller">Seller</label>
   <select class="form-control" name="seller" id="seller">
-    <option value="1" selected>Select Seller Name</option>
-    <option value="1">Salum Hassani</option>
-    <option value="2">Amani Akeem</option>
+ 
+    <option value="0" selected>Select Seller Name</option>
+    <?php 
+$result=mysqli_query($con,"select *from seller")or die ("query 2 incorrect...");
+while($row=mysqli_fetch_assoc($result))
+{?>
+    <option value="<?php echo  $row["seller_id"]?>"><?php echo  $row["fname"]?> <?php echo  $row["lname"]?></option>
+    <?php
+}
+?>
   </select>
 </div>
 
