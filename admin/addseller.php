@@ -8,6 +8,7 @@ $email=$_POST['email'];
 $mobile=$_POST['phone'];
 $address=$_POST['address'];
 $password=$_POST['password'];
+$password = md5($password);
 
 mysqli_query($con,"insert into seller(fname,lname,email,phone,address,password) values ('$f_name','$l_name','$email','$mobile','$address','$password')") 
             or die ("Query 1 is incorrect...");
