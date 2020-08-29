@@ -72,7 +72,9 @@ if(isset($_POST["getProducthome"])){
 			$pro_title = $row['product_name'];
 			$pro_price = $row['product_price'];
 			$pro_image = $row['product_image'];           
-            $cat_name = $row["cat_name"];
+			$cat_name = $row["cat_name"];
+			$dis= ($pro_price *0.1)+$pro_price;
+
 			echo "	
                        <div class='product-widget'>
                                 <a href='product.php?p=$pro_id'> 
@@ -82,7 +84,7 @@ if(isset($_POST["getProducthome"])){
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>
+										<h4 class='product-price'>$pro_price<del class='product-old-price'>Tsh $dis</del></h4>
 									</div></a>
 								</div>           
 			";
@@ -109,7 +111,9 @@ if(isset($_POST["gethomeProduct"])){
 			$pro_title = $row['product_name'];
 			$pro_price = $row['product_price'];
 			$pro_image = $row['product_image'];           
-            $cat_name = $row["cat_name"];
+			$cat_name = $row["cat_name"];
+			$dis= ($pro_price *0.1)+$pro_price;
+
             
 			echo "
 								<div class='col-md-3 col-xs-6'>
@@ -124,7 +128,7 @@ if(isset($_POST["gethomeProduct"])){
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>
+										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>$dis</del></h4>
 										<div>
 										<a href='test.php?id=".$row['product_id']."' class='btn btn-fill btn-primary' pid='".$row['product_id']."' type='submit' id='btn_buy' name='btn_buy'>Add to Cart</a>
 										<div class='cart-action'><input type='text' class='product-quantity' name='quantity' value='1' size='2' /><input type='submit' value='Add to Cart' class='btnAddAction' /></div>
@@ -155,7 +159,9 @@ if(isset($_POST["get_seleted_Category"]) ||  isset($_POST["search"])){
 			$pro_title = $row['product_name'];
 			$pro_price = $row['product_price'];
 			$pro_image = $row['product_image'];
-            $cat_name = $row["cat_name"];
+			$cat_name = $row["cat_name"];
+			$dis= ($pro_price *0.1)+$pro_price;
+
 			echo "
                         <div class='col-md-4 col-xs-6'>
 								<a href='product.php?p=$pro_id'><div class='product'>
@@ -168,7 +174,7 @@ if(isset($_POST["get_seleted_Category"]) ||  isset($_POST["search"])){
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 780,000</del></h4>
+										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh $dis</del></h4>
 										<div>
 										<a href='test.php?id=".$row['product_id']."' class='btn btn-fill btn-primary' pid='".$row['product_id']."' type='submit' id='btn_buy' name='btn_buy'>Add to Cart</a>
 									</div>

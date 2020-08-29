@@ -176,7 +176,7 @@ span.price {
 					</div>
 					</div>
 					</div>
-					<label><input type="CHECKBOX" name="q" class="roomselect" value="conform" required> Shipping address same as billing
+					<label><input type="CHECKBOX" name="q" class="roomselect" value="conform"> Shipping address same as billing
 					</label>';
 					$i=1;
 					$total=0;

@@ -56,6 +56,8 @@ include "header.php";
 								{
 									while($row = mysqli_fetch_assoc($result)) 
 									{
+										$dis= ($row['product_price'] *0.1)+$row['product_price'];
+
 									echo '
                                 <div class="col-md-5 col-md-push-2">
                                 <div id="product-main-img">
@@ -103,7 +105,7 @@ include "header.php";
 								product infor
 							</div>
 							<div>
-								<h3 class="product-price">Tsh '.$row['product_price'].'<del class="product-old-price"> Tsh 870,000</del></h3>
+								<h3 class="product-price">Tsh '.$row['product_price'].'<del class="product-old-price">'.$dis.'</del></h3>
 								<span class="product-available">In Stock</span>
 							</div>
 

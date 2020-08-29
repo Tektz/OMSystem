@@ -18,22 +18,21 @@ if(isset($_POST['edit'])) {
                 <div class="table-responsive ps">
                   <table class="table table-hover tablesorter">
                     <thead class="text-primary">
-                      <tr><th>ID</th><th>Customer Name</th><th>Expire Date</th><th>Product</th><th>Product Amount</th><th>Status</th><th>Action</th>
+                      <tr><th>ID</th><th>Customer Name</th><th>Expire Date</th><th>Quantity</th><th>Total Amount</th><th>Status</th><th>Action</th>
                     </tr></thead>
                     <tbody>
                       <?php 
-                      $seller_id =$_SESSION['seller_id'];
-                        $result=mysqli_query($con,"select *from order_info  where seller_id =  $seller_id ")or die( mysqli_error($con));
+                        $result=mysqli_query($con,"select order_id, f_name, expdate, prod_count, total_amt, status from order_info a, seller b where a.seller_id = b.seller_id ")or die( mysqli_error($con));
 
-                        while($row=mysqli_fetch_assoc($result))
+                        while(list($order_id,$cus_name,$exp_date,$qty,$t_amount,$status)=mysqli_fetch_array($result))
                         {	
                           ?>
-                        <tr><td><?php echo $row["order_id"] ?></td><td><?php echo $row["f_name"] ?></td><td><?php echo $row["expdate"] ?></td><td><?php echo $row["prod_count"] ?></td><td><?php echo $row["total_amt"] ?></td>
+                        <tr><td><?php echo $order_id ?></td><td><?php echo $cus_name ?></td><td><?php echo $exp_date ?></td><td><?php echo $qty ?></td><td><?php echo $t_amount ?></td>
                         <td>
                         <form method="post" action="">
                       <input type="hidden" name="order_id" value="<?php echo $order_id?>">
                           <select class='input input-borders' name='status' >
-                            <option value='<?php echo $row["status"] ?>'><?php echo $row["status"] ?> </option>
+                            <option value='<?php echo  $status?>'><?php echo  $status?> </option>
                             <option value='Pending'>Pending </option>
                             <option value='Refunded'>Refunded  </option>
                             <option value='Cancelled'>Cancelled </option>
@@ -44,7 +43,7 @@ if(isset($_POST['edit'])) {
                         </td>
                         <td>
                         <input class="btn btn-info"  value="Save" type="submit" name="edit">
-                        <a href='view-order.php?order_id=<?php echo $row["order_id"] ?>' type='button'  class='btn btn-info' >
+                        <a href='view-order.php?order_id=<?php echo $order_id ?>' type='button'  class='btn btn-info' >
                                 <i class='material-icons'>View</i></a>
                         </form>
                         </td>

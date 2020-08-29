@@ -35,7 +35,8 @@
                         $pro_title = $row['product_name'];
                         $pro_price = $row['product_price'];
                         $pro_image = $row['product_image'];
-                        $cat_name = $row["cat_name"];
+						$cat_name = $row["cat_name"];
+						$dis= ($pro_price *0.1)+$pro_price;
 
                         echo "  
 								<div class='product'>
@@ -48,7 +49,7 @@
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>	
+										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>$dis</del></h4>	
 										<div class='btn-group' style='margin-left: 25px; margin-top: 15px'>
 								        <a href='test.php?id=".$row['product_id']."' class='btn btn-fill btn-primary' pid='".$row['product_id']."' type='submit' id='btn_buy' name='btn_buy'>Add to Cart</a>
                                         </div>								
@@ -107,7 +108,9 @@
                         $pro_title = $row['product_name'];
                         $pro_price = $row['product_price'];
                         $pro_image = $row['product_image'];
-                        $cat_name = $row["cat_name"];
+						$cat_name = $row["cat_name"];
+						$dis= ($pro_price *0.1)+$pro_price;
+
 
                         echo "  
 								<div class='product'>
@@ -120,7 +123,7 @@
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>Tsh 870,000</del></h4>	
+										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>$dis</del></h4>	
 										<div class='btn-group' style='margin-left: 25px; margin-top: 15px'>
 								        <a href='test.php?id=".$row['product_id']."' class='btn btn-fill btn-primary' pid='".$row['product_id']."' type='submit' id='btn_buy' name='btn_buy'>Add to Cart</a>
                                         </div>								

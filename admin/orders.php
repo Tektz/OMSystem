@@ -9,7 +9,6 @@ header("location: admin_home.php#orders");
 if(isset($_POST['edit'])) {
   $order_id=$_POST['order_id'];
   $status=$_POST['status'];
-  $ref_url =isset($_POST['ref_url'])?base64_decode($_POST['ref_url']):'';
   mysqli_query($con,"UPDATE order_info SET status ='$status' WHERE order_id='$order_id' ")or die($con);
 }
 

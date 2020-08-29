@@ -24,7 +24,7 @@
                                         <input class="input form-control input-borders" type="email" name="email" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$" placeholder="Email" required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="input form-control input-borders" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" placeholder="password" required>
+                                        <input class="input form-control input-borders" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" placeholder="password  eg. Mama234" required>
                                     </div>
                                     <div class="form-group">
                                         <input class="input form-control input-borders" type="password" name="repassword" id="repassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" placeholder="confirm password" required>
